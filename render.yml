@@ -1,6 +1,6 @@
 services:
   - type: cron
-    name: rtx_tracker
+    name: RTX tracker
     schedule: "*/10 7-21 * * *"
     runtime: python
     buildCommand: ""
