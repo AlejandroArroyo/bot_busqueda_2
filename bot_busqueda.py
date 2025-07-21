@@ -111,7 +111,7 @@ while True:
     if 7 <= ahora.hour <= 21:
         buscar_productos()
         print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
-        sys.exist(0)
+        sys.exit(0)
     else:
         print(f"⌛ Esperando... {ahora.strftime('%H:%M')}")
     
