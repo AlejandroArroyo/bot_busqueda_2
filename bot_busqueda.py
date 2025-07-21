@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime
 import time
+import sys
 
 # Configuración Telegram
 TOKEN = "7710527674:AAEwIs2sD8nJ2draX7KWu48J5sKXCfBqjv0"
@@ -110,6 +111,7 @@ while True:
     if 7 <= ahora.hour <= 21 and ahora.minute == 0:
         buscar_productos()
         print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
+        sys.exit(0)
     else:
         print(f"⌛ Esperando... {ahora.strftime('%H:%M')}")
     
