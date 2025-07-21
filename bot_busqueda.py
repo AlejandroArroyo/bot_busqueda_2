@@ -8,7 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime
 import time
-import sys
 
 # Configuración Telegram
 TOKEN = "7710527674:AAEwIs2sD8nJ2draX7KWu48J5sKXCfBqjv0"
@@ -106,7 +105,13 @@ def buscar_productos():
     enviar_telegram(f"⏰ {datetime.now().strftime('%d/%m %H:%M')}\n{mensaje}")
 
 # Ejecutar
-    buscar_productos()
-    print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
-    sys.exit(0)
-
+while True:
+    ahora = datetime.now()
+    if 7 <= ahora.hour <= 21:
+        buscar_productos()
+        print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
+    else:
+        print(f"⌛ Esperando... {ahora.strftime('%H:%M')}")
+    
+    # Espera 60 segundos antes de volver a comprobar
+    time.sleep(60)
