@@ -106,14 +106,7 @@ def buscar_productos():
     enviar_telegram(f"⏰ {datetime.now().strftime('%d/%m %H:%M')}\n{mensaje}")
 
 # Ejecutar
-while True:
-    ahora = datetime.now()
-    if 7 <= ahora.hour <= 21 and ahora.minute == 0:
-        buscar_productos()
-        print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
-        sys.exit(0)
-    else:
-        print(f"⌛ Esperando... {ahora.strftime('%H:%M')}")
-    
-    # Espera 60 segundos antes de volver a comprobar
-    time.sleep(60)
+    buscar_productos()
+    print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
+    sys.exit(0)
+
