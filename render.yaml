@@ -1,7 +1,7 @@
 services:
   - type: cron
     name: rtx_tracker
-    schedule: "0 7-21 * * *"
+    schedule: "*/10 7-21 * * *"
     runtime: python
     buildCommand: ""
     startCommand: "bot_busqueda.py"
