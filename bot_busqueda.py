@@ -107,7 +107,7 @@ def buscar_productos():
 # Ejecutar
 while True:
     ahora = datetime.now()
-    if 7 <= ahora.hour <= 21 and ahora.minute == 16:
+    if 7 <= ahora.hour <= 21 and ahora.minute == 0:
         buscar_productos()
         print("⏰ Script ejecutado correctamente a las", ahora.strftime('%H:%M'))
     else:
