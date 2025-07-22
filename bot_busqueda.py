@@ -90,20 +90,23 @@ def buscar_productos():
 
     finally:
         driver.quit()
+        
+    resultados.sort(key=lambda x: x[0])
 
     # Enviar resultado por Telegram
     if resultados:
-        mejor = min(resultados, key=lambda x: x[0])
-        mensaje = (
-            f"🔍 {PRODUCTO}\n"
-            f"🟢 Mejor precio: {mejor[0]:.2f} €\n"
-            f"📦 {mejor[1]}\n"
-            f"🔗 {mejor[2]}"
-        )
+        top3 = resultados[:3]  # tomar las tres más baratas
+        for precio, titulo, enlace in top3:
+            mensaje = (
+                f"🔍 {PRODUCTO}\n"
+                f"🟢 Precio: {precio:.2f} €\n"
+                f"📦 {titulo}\n"
+                f"🔗 {enlace}"
+            )
+            enviar_telegram(f"⏰ {datetime.now():%d/%m %H:%M}\n{mensaje}")
+            time.sleep(1)  # evitar enviar muy rápido
     else:
-        mensaje = f"⚠️ No se encontraron resultados válidos para {PRODUCTO}"
-
-    enviar_telegram(f"⏰ {datetime.now().strftime('%d/%m %H:%M')}\n{mensaje}")
+        enviar_telegram(f"⚠️ No se encontraron resultados válidos para {PRODUCTO}")
 
 # Ejecutar
 while True:
