@@ -2,7 +2,7 @@ name: RTX Tracker
 
 on:
   schedule:
-    - cron: "*/30 7-21 * * *"    # Cada hora en punto UTC entre las 7 y las 21 h
+    - cron: "13 7-21 * * *"    # Cada hora en punto UTC entre las 7 y las 21 h
   workflow_dispatch:         # Permite ejecutarlo manualmente si quieres
 
 jobs:
