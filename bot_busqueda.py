@@ -13,7 +13,7 @@ import sys
 # Configuración Telegram
 TOKEN = "7710527674:AAEwIs2sD8nJ2draX7KWu48J5sKXCfBqjv0"
 CHAT_ID = "415471027"
-PRODUCTO = ["4070 Ti", "4070Ti", "4070", "RTX"]
+PRODUCTO = ["RTX 5070"]
 
 def enviar_telegram(mensaje):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
