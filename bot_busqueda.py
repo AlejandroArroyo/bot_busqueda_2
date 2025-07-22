@@ -21,7 +21,7 @@ def enviar_telegram(mensaje):
     requests.post(url, data=data)
 
 def buscar_productos():
-    url = "https://www.pccomponentes.com/tarjetas-graficas/geforce-rtx-5070/geforce-rtx-5070-ti"
+    url = "https://www.pccomponentes.com/tarjetas-graficas/geforce-rtx-5070"
 
     # Configurar Chrome con opciones antidetención
     options = webdriver.ChromeOptions()
