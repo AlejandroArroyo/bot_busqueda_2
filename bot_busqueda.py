@@ -13,7 +13,9 @@ import sys
 # Configuración Telegram
 TOKEN = "7710527674:AAEwIs2sD8nJ2draX7KWu48J5sKXCfBqjv0"
 CHAT_ID = "415471027"
-PRODUCTO = ["RTX 5070"]
+PRODUCTO = ["RTX 5070 MSI TRIO OC"]
+PRECIO_MAX = 600.0
+FREAGMENTO = "TRIO OC"
 
 def enviar_telegram(mensaje):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
@@ -21,11 +23,11 @@ def enviar_telegram(mensaje):
     requests.post(url, data=data)
 
 def buscar_productos():
-    url = "https://www.pccomponentes.com/tarjetas-graficas/geforce-rtx-5070"
+    url = "https://www.pccomponentes.com/tarjetas-graficas/geforce-rtx-5070/grafica-nvidia/msi"
 
     # Configurar Chrome con opciones antidetención
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
     options.add_argument("--1850,1200")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
@@ -73,6 +75,9 @@ def buscar_productos():
         for producto in productos:
             try:
                 titulo = producto.find_element(By.CSS_SELECTOR, "h3.product-card__title").text
+                if FREAGMENTO.lower() not in titulo.lower():
+                    continue 
+
                 print(f"🔍 Título detectado: {titulo}")
                 if any(p.lower() in titulo.lower() for p in PRODUCTO):
                     precio_txt = producto.find_element(By.CSS_SELECTOR, "span[data-e2e='price-card']").text
@@ -90,6 +95,8 @@ def buscar_productos():
 
     finally:
         driver.quit()
+
+    resultados = [r for r in resultados if r[0] < PRECIO_MAX]
         
     resultados.sort(key=lambda x: x[0])
 
