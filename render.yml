@@ -4,4 +4,4 @@ services:
     schedule: "*/10 7-21 * * *"
     runtime: python
     buildCommand: ""
-    startCommand: "bot_busqueda.py"
+    startCommand: "bot_busqueda_2.py"
