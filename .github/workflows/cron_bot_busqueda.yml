@@ -22,4 +22,4 @@ jobs:
         pip install selenium webdriver-manager requests
 
     - name: Run bot script
-      run: python bot_busqueda.py
+      run: python bot_busqueda_2.py
