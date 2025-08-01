@@ -27,7 +27,7 @@ def buscar_productos():
 
     # Configurar Chrome con opciones antidetención
     options = webdriver.ChromeOptions()
-    #options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--1850,1200")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
