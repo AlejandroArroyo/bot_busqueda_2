@@ -113,7 +113,7 @@ def buscar_productos():
             enviar_telegram(f"⏰ {datetime.now():%d/%m %H:%M}\n{mensaje}")
             time.sleep(1)  # evitar enviar muy rápido
     else:
-        enviar_telegram(f"⚠️ No se encontraron resultados válidos para {PRODUCTO}")
+        enviar_telegram(f"⚠️ No se encontraron resultados menores a 600€ para {PRODUCTO}")
 
 # Ejecutar
 while True:
